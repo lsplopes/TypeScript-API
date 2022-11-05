@@ -8,3 +8,8 @@ export interface IUser {
 export interface User extends IUser {
   id: number;
 }
+
+export interface UserCredentials {
+  username: string;
+  password: string;
+}

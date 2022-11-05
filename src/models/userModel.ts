@@ -19,6 +19,16 @@ async function create(user: IUser): Promise<User> {
   return newUser;
 }
 
+async function getByUsername(username: string): Promise<User | null> {
+  const query = 'SELECT * FROM Trybesmith.Users WHERE username = ?';
+  
+  const [data] = await connection.execute(query, [username]);
+  const [user] = data as User[];
+
+  return user || null;
+}
+
 export default {
   create,
+  getByUsername,
 };
